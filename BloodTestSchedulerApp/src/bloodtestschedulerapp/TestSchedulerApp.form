@@ -43,9 +43,9 @@
                                   <Component id="hospitalwardCB" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="addpatientBTN" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
                           <Component id="allpatientLBL" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
                           <Component id="jScrollPane3" min="-2" pref="386" max="-2" attributes="0"/>
+                          <Component id="addpatientBTN" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -152,11 +152,10 @@
     <Component class="javax.swing.JComboBox" name="priorityCB">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
+          <StringArray count="3">
+            <StringItem index="0" value="Low"/>
+            <StringItem index="1" value="Medium"/>
+            <StringItem index="2" value="High"/>
           </StringArray>
         </Property>
       </Properties>
@@ -171,7 +170,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="addpatientBTN">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ADD Patient"/>
+        <Property name="text" type="java.lang.String" value="Register Patient"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="noshowlistLBL">
