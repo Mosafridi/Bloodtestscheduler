@@ -4,16 +4,30 @@
  */
 package bloodtestschedulerapp;
 
+import bloodtestschedulerapp.AppointmentPriorityQueue;
+import bloodtestschedulerapp.NoShowQueue;
+import bloodtestschedulerapp.Patient;
+import bloodtestschedulerapp.PatientList;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List; 
 /**
  *
- * @author shoai
+ * @author shoaib
  */
 public class TestSchedulerApp extends javax.swing.JFrame {
-
+private AppointmentPriorityQueue appointmentQueue;
+    private NoShowQueue noShowQueue;
+    private PatientList patientList;
     /**
      * Creates new form TestSchedulerApp
      */
     public TestSchedulerApp() {
+       appointmentQueue = new AppointmentPriorityQueue();
+        noShowQueue = new NoShowQueue();
+        patientList = new PatientList();
         initComponents();
     }
 
@@ -48,6 +62,8 @@ public class TestSchedulerApp extends javax.swing.JFrame {
         noshowBTN = new javax.swing.JButton();
         findBTN = new javax.swing.JButton();
         exitBTN = new javax.swing.JButton();
+        gpdetailsLBL = new javax.swing.JLabel();
+        gpdetailsTF = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,11 +75,16 @@ public class TestSchedulerApp extends javax.swing.JFrame {
 
         hospitalwardLBL.setText("Hospital Ward");
 
-        priorityCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Low", "Medium", "High" }));
+        priorityCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Low", "Medium", "Urgent" }));
 
         hospitalwardCB.setText("YES");
 
         addpatientBTN.setText("Register Patient");
+        addpatientBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addpatientBTNActionPerformed(evt);
+            }
+        });
 
         noshowlistLBL.setText("No Show List");
 
@@ -84,12 +105,34 @@ public class TestSchedulerApp extends javax.swing.JFrame {
         jScrollPane3.setViewportView(allpatientTA);
 
         nextpatientBTN.setText("Schedule Next Patient");
+        nextpatientBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextpatientBTNActionPerformed(evt);
+            }
+        });
 
         noshowBTN.setText("Mark as No-Show");
+        noshowBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noshowBTNActionPerformed(evt);
+            }
+        });
 
         findBTN.setText("Find Highest Priority");
+        findBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                findBTNActionPerformed(evt);
+            }
+        });
 
         exitBTN.setText("Exit");
+        exitBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitBTNActionPerformed(evt);
+            }
+        });
+
+        gpdetailsLBL.setText("GP Details");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,21 +143,23 @@ public class TestSchedulerApp extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(allpatientLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addpatientBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(nameLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ageLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(piorityLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(hospitalwardLBL, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(gpdetailsLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(nameLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ageLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(piorityLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(hospitalwardLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(ageTF, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                                     .addComponent(nameTF, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                                     .addComponent(priorityCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(hospitalwardCB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(allpatientLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addpatientBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(hospitalwardCB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(gpdetailsTF))))
                         .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(priorityqueueLBL)
@@ -147,15 +192,19 @@ public class TestSchedulerApp extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ageLBL)
                             .addComponent(ageTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(piorityLBL)
-                            .addComponent(priorityCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(gpdetailsLBL)
+                            .addComponent(gpdetailsTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(priorityCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(piorityLBL))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(hospitalwardLBL)
                             .addComponent(hospitalwardCB))
-                        .addGap(43, 43, 43)
+                        .addGap(18, 18, 18)
                         .addComponent(addpatientBTN))
                     .addComponent(jScrollPane1))
                 .addGap(56, 56, 56)
@@ -166,7 +215,7 @@ public class TestSchedulerApp extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nextpatientBTN)
                     .addComponent(noshowBTN)
@@ -178,35 +227,100 @@ public class TestSchedulerApp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private void addpatientBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addpatientBTNActionPerformed
+     try {
+            String name = nameTF.getText().trim();
+            if (name.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please enter a patient name");
+                return;
+            }
+            
+            int age;
+            try {
+                age = Integer.parseInt(ageTF.getText().trim());
+                if (age <= 0 || age > 120) {
+                    JOptionPane.showMessageDialog(this, "Please enter a valid age between 1 and 120");
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid age");
+                return;
+            }
+            
+            String priority = (String) priorityCB.getSelectedItem();
+            String gpDetails = gpdetailsTF.getText().trim();
+            if (gpDetails.isEmpty()) {
+                gpDetails = "Unknown";
+            }
+            boolean hospitalWard = hospitalwardCB.isSelected();
+
+            Patient patient = new Patient(name, age, priority, gpDetails, hospitalWard);
+            appointmentQueue.insert(patient);
+            patientList.add(patient);
+
+            // Update displays
+            updateDisplays();
+            
+            // Clear form
+            nameTF.setText("");
+            ageTF.setText("");
+            gpdetailsTF.setText("");
+            priorityCB.setSelectedIndex(0);
+            hospitalwardCB.setSelected(false);
+            
+            JOptionPane.showMessageDialog(this, "Patient registered successfully");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_addpatientBTNActionPerformed
+
+    private void nextpatientBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextpatientBTNActionPerformed
+       
+    }//GEN-LAST:event_nextpatientBTNActionPerformed
+
+    private void noshowBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noshowBTNActionPerformed
+    Patient nextPatient = appointmentQueue.extractMax();
+        if (nextPatient != null) {
+            noShowQueue.enqueue(nextPatient);
+            JOptionPane.showMessageDialog(this, "Marked as no-show: " + nextPatient.getName());
+            updateDisplays();
+        } else {
+            JOptionPane.showMessageDialog(this, "No patients in queue");
+        }
+    }//GEN-LAST:event_noshowBTNActionPerformed
+
+    private void findBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findBTNActionPerformed
+     
+    }//GEN-LAST:event_findBTNActionPerformed
+
+    private void exitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBTNActionPerformed
+        // TODO add your handling code here:
+  System.exit(0);
+    }//GEN-LAST:event_exitBTNActionPerformed
+
+    private void updateDisplays() {
+    // Update all text areas
+  
+}
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
+          try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TestSchedulerApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TestSchedulerApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TestSchedulerApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TestSchedulerApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new TestSchedulerApp().setVisible(true);
             }
@@ -221,6 +335,8 @@ public class TestSchedulerApp extends javax.swing.JFrame {
     private javax.swing.JTextArea allpatientTA;
     private javax.swing.JButton exitBTN;
     private javax.swing.JButton findBTN;
+    private javax.swing.JLabel gpdetailsLBL;
+    private javax.swing.JTextField gpdetailsTF;
     private javax.swing.JCheckBox hospitalwardCB;
     private javax.swing.JLabel hospitalwardLBL;
     private javax.swing.JScrollPane jScrollPane1;

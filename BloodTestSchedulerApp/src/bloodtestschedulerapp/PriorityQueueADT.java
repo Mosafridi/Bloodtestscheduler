@@ -8,10 +8,10 @@ package bloodtestschedulerapp;
  *
  * @author shoaib
  */
-public   interface PriorityQueueADT<T> {
-        void insert(T item);
-        T extractMax();
-        T peekMax();
-        boolean isEmpty();
-        int size();
-    }
+public interface PriorityQueueADT<T> {
+    void insert(T item);
+    T extractMax();
+    T peekMax();
+    boolean isEmpty();
+    int size();
+}

@@ -4,17 +4,25 @@
  */
 package bloodtestschedulerapp;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.PriorityQueue;
 /**
  *
  * @author shoaib
  */
-public class BloodTestSchedulerApp {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class BloodTestSchedulerApp {
+    private AppointmentPriorityQueue appointmentQueue;
+    private NoShowQueue noShowQueue;
+    private PatientList patientList;
     
+    public BloodTestSchedulerApp() {
+      
+}
 }

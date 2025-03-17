@@ -28,12 +28,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="allpatientLBL" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" min="-2" pref="386" max="-2" attributes="0"/>
+                          <Component id="addpatientBTN" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="gpdetailsLBL" alignment="0" max="32767" attributes="0"/>
                                   <Component id="nameLBL" alignment="0" max="32767" attributes="0"/>
                                   <Component id="ageLBL" alignment="0" max="32767" attributes="0"/>
                                   <Component id="piorityLBL" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="hospitalwardLBL" pref="82" max="32767" attributes="0"/>
+                                  <Component id="hospitalwardLBL" alignment="0" pref="82" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -41,11 +45,9 @@
                                   <Component id="nameTF" pref="135" max="32767" attributes="0"/>
                                   <Component id="priorityCB" alignment="0" max="32767" attributes="0"/>
                                   <Component id="hospitalwardCB" max="32767" attributes="0"/>
+                                  <Component id="gpdetailsTF" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="allpatientLBL" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
-                          <Component id="jScrollPane3" min="-2" pref="386" max="-2" attributes="0"/>
-                          <Component id="addpatientBTN" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -87,17 +89,22 @@
                           <Component id="ageLBL" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ageTF" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="piorityLBL" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="gpdetailsLBL" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="gpdetailsTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="priorityCB" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="piorityLBL" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="hospitalwardLBL" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="hospitalwardCB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="addpatientBTN" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" max="32767" attributes="0"/>
@@ -112,7 +119,7 @@
                   <Component id="jScrollPane3" min="-2" pref="184" max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="184" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="63" max="32767" attributes="0"/>
+              <EmptySpace pref="58" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="nextpatientBTN" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="noshowBTN" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -155,7 +162,7 @@
           <StringArray count="3">
             <StringItem index="0" value="Low"/>
             <StringItem index="1" value="Medium"/>
-            <StringItem index="2" value="High"/>
+            <StringItem index="2" value="Urgent"/>
           </StringArray>
         </Property>
       </Properties>
@@ -172,6 +179,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Register Patient"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addpatientBTNActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="noshowlistLBL">
       <Properties>
@@ -237,21 +247,40 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Schedule Next Patient"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextpatientBTNActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="noshowBTN">
       <Properties>
         <Property name="text" type="java.lang.String" value="Mark as No-Show"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noshowBTNActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="findBTN">
       <Properties>
         <Property name="text" type="java.lang.String" value="Find Highest Priority"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="findBTNActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="exitBTN">
       <Properties>
         <Property name="text" type="java.lang.String" value="Exit"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitBTNActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="gpdetailsLBL">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="GP Details"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="gpdetailsTF">
     </Component>
   </SubComponents>
 </Form>
