@@ -277,7 +277,13 @@ private AppointmentPriorityQueue appointmentQueue;
     }//GEN-LAST:event_addpatientBTNActionPerformed
 
     private void nextpatientBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextpatientBTNActionPerformed
-       
+        Patient nextPatient = appointmentQueue.extractMax();
+        if (nextPatient != null) {
+            JOptionPane.showMessageDialog(this, "Processing patient: " + nextPatient.getName());
+            updateDisplays();
+        } else {
+            JOptionPane.showMessageDialog(this, "No patients in queue");
+        }
     }//GEN-LAST:event_nextpatientBTNActionPerformed
 
     private void noshowBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noshowBTNActionPerformed
@@ -292,7 +298,12 @@ private AppointmentPriorityQueue appointmentQueue;
     }//GEN-LAST:event_noshowBTNActionPerformed
 
     private void findBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findBTNActionPerformed
-     
+      Patient highestPriority = appointmentQueue.peekMax();
+        if (highestPriority != null) {
+            JOptionPane.showMessageDialog(this, "Highest Priority Patient: " + highestPriority);
+        } else {
+            JOptionPane.showMessageDialog(this, "No patients in queue");
+        }
     }//GEN-LAST:event_findBTNActionPerformed
 
     private void exitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBTNActionPerformed

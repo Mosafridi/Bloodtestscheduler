@@ -23,6 +23,10 @@ public class BloodTestSchedulerApp {
     private PatientList patientList;
     
     public BloodTestSchedulerApp() {
-      
-}
+        appointmentQueue = new AppointmentPriorityQueue();
+        noShowQueue = new NoShowQueue();
+        patientList = new PatientList();
+    }
+    
+    
 }
