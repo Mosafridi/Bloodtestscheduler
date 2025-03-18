@@ -66,19 +66,32 @@ private AppointmentPriorityQueue appointmentQueue;
         gpdetailsTF = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
 
+        nameLBL.setFont(new java.awt.Font("High Tower Text", 1, 18)); // NOI18N
         nameLBL.setText("Patient Name");
 
+        ageLBL.setFont(new java.awt.Font("High Tower Text", 1, 18)); // NOI18N
         ageLBL.setText("Age");
 
+        piorityLBL.setFont(new java.awt.Font("High Tower Text", 1, 18)); // NOI18N
         piorityLBL.setText("Priority");
 
+        hospitalwardLBL.setFont(new java.awt.Font("High Tower Text", 1, 18)); // NOI18N
         hospitalwardLBL.setText("Hospital Ward");
 
+        ageTF.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
+
+        nameTF.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
+
+        priorityCB.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
         priorityCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Low", "Medium", "Urgent" }));
 
+        hospitalwardCB.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
         hospitalwardCB.setText("YES");
 
+        addpatientBTN.setBackground(new java.awt.Color(204, 255, 255));
+        addpatientBTN.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
         addpatientBTN.setText("Register Patient");
         addpatientBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,24 +99,32 @@ private AppointmentPriorityQueue appointmentQueue;
             }
         });
 
+        noshowlistLBL.setFont(new java.awt.Font("High Tower Text", 1, 24)); // NOI18N
         noshowlistLBL.setText("No Show List");
 
         noshowlistTA.setColumns(20);
+        noshowlistTA.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         noshowlistTA.setRows(5);
         jScrollPane1.setViewportView(noshowlistTA);
 
+        priorityqueueLBL.setFont(new java.awt.Font("High Tower Text", 1, 24)); // NOI18N
         priorityqueueLBL.setText("Priority Queue");
 
         priorityqueueTA.setColumns(20);
+        priorityqueueTA.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         priorityqueueTA.setRows(5);
         jScrollPane2.setViewportView(priorityqueueTA);
 
+        allpatientLBL.setFont(new java.awt.Font("High Tower Text", 1, 24)); // NOI18N
         allpatientLBL.setText("All Patients");
 
         allpatientTA.setColumns(20);
+        allpatientTA.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         allpatientTA.setRows(5);
         jScrollPane3.setViewportView(allpatientTA);
 
+        nextpatientBTN.setBackground(new java.awt.Color(102, 255, 255));
+        nextpatientBTN.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
         nextpatientBTN.setText("Schedule Next Patient");
         nextpatientBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +132,8 @@ private AppointmentPriorityQueue appointmentQueue;
             }
         });
 
+        noshowBTN.setBackground(new java.awt.Color(255, 102, 102));
+        noshowBTN.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
         noshowBTN.setText("Mark as No-Show");
         noshowBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +141,8 @@ private AppointmentPriorityQueue appointmentQueue;
             }
         });
 
+        findBTN.setBackground(new java.awt.Color(153, 153, 255));
+        findBTN.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
         findBTN.setText("Find Highest Priority");
         findBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +150,8 @@ private AppointmentPriorityQueue appointmentQueue;
             }
         });
 
+        exitBTN.setBackground(new java.awt.Color(255, 102, 102));
+        exitBTN.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
         exitBTN.setText("Exit");
         exitBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +159,10 @@ private AppointmentPriorityQueue appointmentQueue;
             }
         });
 
+        gpdetailsLBL.setFont(new java.awt.Font("High Tower Text", 1, 18)); // NOI18N
         gpdetailsLBL.setText("GP Details");
+
+        gpdetailsTF.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,42 +171,39 @@ private AppointmentPriorityQueue appointmentQueue;
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(allpatientLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addpatientBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(gpdetailsLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(nameLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ageLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(piorityLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(hospitalwardLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ageTF, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                    .addComponent(nameTF, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                    .addComponent(priorityCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(hospitalwardCB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(gpdetailsTF))))
-                        .addGap(49, 49, 49)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(gpdetailsLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(nameLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ageLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(piorityLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(hospitalwardLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(priorityqueueLBL)
-                            .addComponent(noshowlistLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(ageTF, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                            .addComponent(priorityCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(hospitalwardCB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(gpdetailsTF)
+                            .addComponent(nameTF)))
+                    .addComponent(allpatientLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addpatientBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 25, Short.MAX_VALUE)
                         .addComponent(nextpatientBTN)
-                        .addGap(33, 33, 33)
-                        .addComponent(noshowBTN)
-                        .addGap(42, 42, 42)
+                        .addGap(18, 18, 18)
+                        .addComponent(noshowBTN)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2)
+                        .addComponent(priorityqueueLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(noshowlistLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(findBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(108, 108, 108)
-                        .addComponent(exitBTN)
-                        .addGap(27, 27, 27))))
+                        .addGap(18, 18, 18)
+                        .addComponent(exitBTN)))
+                .addGap(31, 31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,7 +214,8 @@ private AppointmentPriorityQueue appointmentQueue;
                     .addComponent(nameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(noshowlistLBL))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ageLBL)
@@ -205,9 +233,8 @@ private AppointmentPriorityQueue appointmentQueue;
                             .addComponent(hospitalwardLBL)
                             .addComponent(hospitalwardCB))
                         .addGap(18, 18, 18)
-                        .addComponent(addpatientBTN))
-                    .addComponent(jScrollPane1))
-                .addGap(56, 56, 56)
+                        .addComponent(addpatientBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(priorityqueueLBL)
                     .addComponent(allpatientLBL))
@@ -215,13 +242,19 @@ private AppointmentPriorityQueue appointmentQueue;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nextpatientBTN)
-                    .addComponent(noshowBTN)
-                    .addComponent(findBTN)
-                    .addComponent(exitBTN))
-                .addGap(42, 42, 42))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(findBTN)
+                            .addComponent(exitBTN))
+                        .addGap(42, 42, 42))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nextpatientBTN)
+                            .addComponent(noshowBTN))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
