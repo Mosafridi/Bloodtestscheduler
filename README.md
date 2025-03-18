@@ -1,7 +1,7 @@
 # Blood Test Scheduler Application
 
 A Java-based application for efficiently managing and scheduling blood tests in healthcare settings. This system uses priority-based scheduling to ensure patients are seen according to urgency, hospital status, and age considerations.
-
+Developed as part of [BSHCIFSC2 2025 DSA CA, NSI].
 ## Features
 
 ### Priority-Based Scheduling
@@ -59,3 +59,4 @@ The application implements various **Abstract Data Types (ADTs)** to efficiently
 ### Clone this repository:
 ```sh
 [git clone ] (https://github.com/Mosafridi/Bloodtestscheduler.git)
+
