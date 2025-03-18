@@ -313,7 +313,7 @@ private AppointmentPriorityQueue appointmentQueue;
 
     private void updateDisplays() {
     // Update all text areas
-  
+   
 }
     /**
      * @param args the command line arguments

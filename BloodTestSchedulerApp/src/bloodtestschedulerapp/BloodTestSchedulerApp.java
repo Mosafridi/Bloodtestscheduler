@@ -28,5 +28,36 @@ public class BloodTestSchedulerApp {
         patientList = new PatientList();
     }
     
+    public void registerPatient(String name, int age, String priority, String gpDetails, boolean hospitalWard) {
+        Patient patient = new Patient(name, age, priority, gpDetails, hospitalWard);
+        appointmentQueue.insert(patient);
+        patientList.add(patient);
+    }
     
+    public Patient getNextPatient() {
+        return appointmentQueue.extractMax();
+    }
+    
+    public void markAsNoShow() {
+        Patient patient = appointmentQueue.extractMax();
+        if (patient != null) {
+            noShowQueue.enqueue(patient);
+        }
+    }
+    
+    public Patient findHighestPriority() {
+        return appointmentQueue.peekMax();
+    }
+    
+    public PatientList getPatientList() {
+        return patientList;
+    }
+    
+    public AppointmentPriorityQueue getAppointmentQueue() {
+        return appointmentQueue;
+    }
+    
+    public NoShowQueue getNoShowQueue() {
+        return noShowQueue;
+    }
 }
