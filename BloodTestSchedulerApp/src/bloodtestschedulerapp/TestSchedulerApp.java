@@ -311,9 +311,35 @@ private AppointmentPriorityQueue appointmentQueue;
   System.exit(0);
     }//GEN-LAST:event_exitBTNActionPerformed
 
+    /*mostly AI generated Code. source(KIMI.AI)
+    This method updates three different text displays
+    First, it retrieves patient data from three sources: patients ordered by priority, patients who didn't show up, and the complete list of all patients
+    */
     private void updateDisplays() {
     // Update all text areas
-   
+    List<Patient> priorityList = appointmentQueue.getAllInPriorityOrder();
+    List<Patient> noShowList = noShowQueue.getAllNoShows();
+    java.util.ArrayList<Patient> allPatients = patientList.getAll(); // Changed to ArrayList to match return type
+    
+    // Format the display
+    StringBuilder priorityStr = new StringBuilder();
+    for (Patient p : priorityList) {
+        priorityStr.append(p.toString()).append("\n");
+    }
+    
+    StringBuilder noShowStr = new StringBuilder();
+    for (Patient p : noShowList) {
+        noShowStr.append(p.toString()).append("\n");
+    }
+    
+    StringBuilder allPatientsStr = new StringBuilder();
+    for (Patient p : allPatients) {
+        allPatientsStr.append(p.toString()).append("\n");
+    }
+    
+    priorityqueueTA.setText(priorityStr.toString());
+    noshowlistTA.setText(noShowStr.toString());
+    allpatientTA.setText(allPatientsStr.toString());
 }
     /**
      * @param args the command line arguments
